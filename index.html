@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SpendSpark</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+		<div class="decor-shape decor1"></div>
+		<div class="decor-shape decor2"></div>
+		<div class="decor-shape decor3"></div>
+		<!-- Animated floating stars -->
+		<div class="star-anim star1">✨</div>
+		<div class="star-anim star2">⭐</div>
+		<div class="star-anim star3">🌟</div>
+		<div class="star-anim star4">✨</div>
+		<div class="star-anim star5">⭐</div>
+		<div class="main-layout">
+			<nav class="sidebar">
+				<div class="sidebar-title">☀️</div>
+				<button class="tab-btn active" data-tab="daily">Daily</button>
+				<button class="tab-btn" data-tab="monthly">Monthly</button>
+				<button class="tab-btn" data-tab="profile">My Profile</button>
+			</nav>
+			<div class="tab-content">
+				<div class="tab-panel" id="tab-daily">
+					<div class="container">
+						<h1><span style="font-size:1.6em;">💸</span> SpendSpark <span style="font-size:1.3em;">✨</span></h1>
+						<div class="card-img" style="margin-bottom:1rem;">
+								<img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4b0.png" alt="Money Bag" width="56" height="56" style="border-radius:1.2rem; box-shadow:0 2px 12px #ffb6d540; background:#fff6fa;" />
+						</div>
+						<form id="expense-form">
+								<input type="text" id="expense-name" placeholder="Expense name" required>
+								<input type="number" id="expense-amount" placeholder="Amount" min="0.01" step="0.01" required>
+								<button type="submit">Add Expense</button>
+						</form>
+						<ul id="expense-list"></ul>
+						<div class="total">
+								Total: $<span id="total-amount">0.00</span>
+						</div>
+						<canvas id="expense-chart" width="300" height="300"></canvas>
+					</div>
+				</div>
+				<div class="tab-panel" id="tab-monthly" style="display:none;">
+					<div class="container">
+						<h1><span style="font-size:1.3em;">📅</span> Monthly Expenses</h1>
+						<ul id="monthly-list"></ul>
+						<div class="total">Total: $<span id="monthly-total">0.00</span></div>
+						<canvas id="monthly-chart" width="300" height="300"></canvas>
+					</div>
+				</div>
+				<div class="tab-panel" id="tab-profile" style="display:none;">
+					<div class="container">
+						<h1><span style="font-size:1.3em;">👤</span> My Profile</h1>
+						<div id="profile-area"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+</body>
+</html>

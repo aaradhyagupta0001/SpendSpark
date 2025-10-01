@@ -1,0 +1,280 @@
+/* Main layout for sidebar and content */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: stretch;
+  justify-content: center;
+  z-index: 2;
+}
+
+.sidebar {
+  background: rgba(255,255,255,0.85);
+  box-shadow: 2px 0 24px #ffb6d540;
+  padding: 2.5rem 1rem 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  min-width: 90px;
+  z-index: 3;
+  gap: 1.5rem;
+}
+.sidebar-title {
+  font-size: 2.1rem;
+  margin-bottom: 2rem;
+  color: #ffb6d5;
+  text-shadow: 0 2px 8px #ffe0ec80;
+}
+.tab-btn {
+  background: linear-gradient(90deg, #ffb6d5 0%, #b6e0fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ffe0ec40;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  outline: none;
+}
+.tab-btn.active, .tab-btn:focus {
+  background: linear-gradient(90deg, #f687b3 0%, #63b3ed 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #ffb6d580;
+}
+.tab-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+.tab-panel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Adjust container for tabbed layout */
+.tab-panel .container {
+  margin: 2.5rem 0;
+}
+/* Animated floating stars on sides */
+.star-anim {
+  position: fixed;
+  z-index: 10;
+  font-size: 2.1rem;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: floatStar 4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 8px #ffe0ec80);
+}
+.star1 { left: 2vw; top: 12vh; animation-delay: 0s; }
+.star2 { left: 2vw; top: 60vh; animation-delay: 1.2s; }
+.star3 { right: 2vw; top: 25vh; animation-delay: 0.7s; }
+.star4 { right: 2vw; top: 70vh; animation-delay: 2.1s; }
+.star5 { left: 50vw; top: 2vh; font-size: 1.5rem; animation-delay: 1.7s; }
+
+@keyframes floatStar {
+  0% { transform: translateY(0) scale(1) rotate(-8deg); opacity: 0.7; }
+  50% { transform: translateY(-18px) scale(1.15) rotate(8deg); opacity: 1; }
+  100% { transform: translateY(0) scale(1) rotate(-8deg); opacity: 0.7; }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe0ec 0%, #f9e7fe 50%, #e0f7fa 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Decorative pastel shapes */
+.decor-shape {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(2px);
+}
+.decor1 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, #ffb6d5 60%, transparent 100%);
+  top: -80px; left: -100px;
+}
+.decor2 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, #b6e0fe 60%, transparent 100%);
+  bottom: -60px; right: -60px;
+}
+.decor3 {
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, #f9e7fe 60%, transparent 100%);
+  top: 60px; right: 30px;
+}
+
+.container {
+  background: rgba(255,255,255,0.95);
+  padding: 2.5rem 2.7rem 2.2rem 2.7rem;
+  border-radius: 2rem;
+  box-shadow: 0 8px 40px 0 rgba(255, 182, 213, 0.18), 0 2px 8px 0 rgba(44, 62, 80, 0.08);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  margin: 2.5rem 0;
+}
+
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #e53e3e;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #ffe0ec80;
+}
+
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  z-index: 2;
+}
+
+
+form input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #ffd6e0;
+  border-radius: 0.7rem;
+  font-size: 1.05rem;
+  outline: none;
+  background: #fff6fa;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #ffe0ec30;
+}
+
+
+form input:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 2px #ffe0ec80;
+}
+
+
+form button {
+  background: linear-gradient(90deg, #ffb6d5 0%, #b6e0fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ffe0ec40;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #f687b3 0%, #63b3ed 100%);
+  box-shadow: 0 4px 16px #ffb6d580;
+}
+
+
+#expense-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: 0 0 1.2rem 0;
+  z-index: 2;
+}
+
+
+#expense-list li {
+  background: linear-gradient(90deg, #fff6fa 0%, #e0f7fa 100%);
+  margin-bottom: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px #ffe0ec30;
+  border: 1px solid #ffe0ec60;
+}
+
+
+#expense-list li .remove-btn {
+  background: linear-gradient(90deg, #ffb6d5 0%, #b6e0fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px #ffe0ec40;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+#expense-list li .remove-btn:hover {
+  background: linear-gradient(90deg, #f687b3 0%, #63b3ed 100%);
+  box-shadow: 0 2px 8px #ffb6d580;
+}
+
+
+.total {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e53e3e;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px #ffe0ec80;
+}
+
+
+#expense-chart {
+  margin-top: 0.5rem;
+  max-width: 100%;
+  background: #fff6fa;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px #ffb6d540, 0 2px 8px #b6e0fe40;
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  form input, form button {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.5rem;
+  }
+  #expense-list li {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .total {
+    font-size: 1rem;
+  }
+}
